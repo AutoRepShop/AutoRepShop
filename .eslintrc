@@ -1,0 +1,23 @@
+{
+    "extends": "jquery",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "jquery": true
+    },
+    "rules": {
+        "space-in-parens": ["off"],
+        "eol-last": ["off"],
+        "quotes": ["error", "single"],
+        "block-scoped-var": 2,
+        "dot-notation": 2,
+        "eqeqeq": 2,
+        "semi": 2,
+        "no-else-return": 2,
+        "no-fallthrough": 2,
+        "no-redeclare": 2,
+        "wrap-iife": 2,
+        "yoda": 0
+    }
+}
