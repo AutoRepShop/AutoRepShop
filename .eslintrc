@@ -7,6 +7,8 @@
         "jquery": true
     },
     "rules": {
+        "no-undef": ["off"],
+        "linebreak-style": ["off"], 
         "space-in-parens": ["error", "never"],
         "eol-last": ["off"],
         "quotes": ["error", "single"],
