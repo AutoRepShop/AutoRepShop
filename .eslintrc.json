@@ -7,9 +7,11 @@
         "jquery": true
     },
     "rules": {
+        "no-unused-vars": ["warn", "always"],
         "no-undef": ["off"],
-        "linebreak-style": ["off"], 
+        "linebreak-style": ["off"],
         "space-in-parens": ["error", "never"],
+        "lines-around-comment": ["off"],
         "eol-last": ["off"],
         "quotes": ["error", "single"],
         "no-multiple-empty-lines": [1, { "max": 1 }],
