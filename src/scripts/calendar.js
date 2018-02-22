@@ -27,6 +27,8 @@ $(document).ready(function() {
                         end: end
                     };
 
+
+
                     // Push event into fullCalendar's array of events
                     // and displays it. The last argument is the
                     // 'stick' value. If set to true the event
