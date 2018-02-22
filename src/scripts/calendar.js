@@ -12,6 +12,8 @@ $(document).ready(function() {
             // Sets first day of week to Monday
             firstDay: 1,
 
+            aspectRatio: 2.2,
+
             // Make possible to respond to clicks and selections
             selectable: true,
 
