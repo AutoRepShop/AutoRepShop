@@ -4,9 +4,13 @@ $(document).ready(function() {
     var calendar = $('#calendar').fullCalendar({
             // Start of calendar options
             header: {
-                left: 'title',
-                right: 'today,month,agendaDay,agendaWeek prev,next'
+                left: 'today,month,agendaDay,agendaWeek',
+                center: 'title',
+                right: 'prev,next'
             },
+
+            // Sets first day of week to Monday
+            firstDay: 1,
 
             // Make possible to respond to clicks and selections
             selectable: true,
@@ -26,8 +30,6 @@ $(document).ready(function() {
                         start: start,
                         end: end
                     };
-
-
 
                     // Push event into fullCalendar's array of events
                     // and displays it. The last argument is the
