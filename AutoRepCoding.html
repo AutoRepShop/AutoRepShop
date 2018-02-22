@@ -10,8 +10,22 @@
 
         <link rel="stylesheet" type="text/css" href="./CSS/martoCSS.css">
 
+        <link rel='stylesheet' href='./fullcalendar.css' />
+        <script src='./lib/jquery.min.js'></script>
+        <script src='./lib/moment.min.js'></script>
+        <script src='./fullcalendar.js'></script>
 
+        <script>    
+            $(document).ready(function() {
 
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+            });
+        </script>
   </head>
   <body>
       
@@ -37,19 +51,10 @@
                     <img src="./Pictures/about.jpg" />
                 </div>
             </div>
-        <div id="theInfo">
-            
-              
-            <!-- <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=vu0m0a1hl8vg9kke0s05hqs9p4%40group.calendar.google.com&amp;color=%238D6F47&amp;ctz=Europe%2FSofia" style="border-width:0" width="700" height="600" frameborder="0" scrolling="no"></iframe> -->
-        </div>
+
+            <div id='calendar' class="theInfo"></div>
         
     </div>
-        <script>
-            
-                $( "#calendar" ).click(function() {
-               
-                console.log("clicked !!");
-                });
-        </script>
+      
   </body>
 </html>
