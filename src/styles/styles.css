@@ -15,6 +15,31 @@ body {
     margin-top: 150px;
     margin-bottom: -1em;
 }
+.imgClass{
+    
+    margin-top: 20%;
+    margin-bottom: auto;
+    
+    max-width: 100%;
+    height: auto;
+}
+.menu-item{
+    height: 15%;
+    width: auto;
+    background-color: lightslategray;
+    border:2px solid black;
+    margin: 0em;
+    margin-bottom: 0em;
+    margin-top: 0em;
+    /* padding: 3em; */
+    /* vertical-align:middle;  */
+    text-align:center;
+}
+
+#menuCal {
+    background: url(./Pictures/calendar.jpg) no - repeat center center;
+    
+}
 
 #sidebar {
     grid-column: 1/2;
