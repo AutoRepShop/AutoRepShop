@@ -11,10 +11,7 @@
         {
             "label": "eslint",
             "type": "shell",
-            "command": "./node_modules/eslint/bin/eslint.js --fix .",
-            "problemMatcher": [
-                "$eslint-stylish"
-            ]
+            "command": "./../node_modules/eslint/bin/eslint.js --fix ."
         }
     ]
 } 
