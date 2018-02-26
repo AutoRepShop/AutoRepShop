@@ -20,14 +20,57 @@
 
 <body>
     <div class="wrapper">
-        <div id="sidebar">Sidebar</div>
-        <div id="calendar"></div>
+        <div id="sidebar">
+
+            Sidebar
+                <div id="menuCal" class ="menu-item" data-href="calendar">
+                    <img src="./src/assets/img/calendar.jpg" class="imgClass"  />
+                    <div class="showme">Calendar</div>
+                </div>
+    
+                <div id="menuCli" class ="menu-item" data-href="clients">
+                    <img src="./src/assets/img/clients.jpg" class="imgClass" />
+                    <div class="showme">Clients</div>
+                </div>
+    
+                <div id="menuMech" class ="menu-item" data-href="mechanics">
+                    <img src="./src/assets/img/mechanics.jpg" class="imgClass" />
+                    <div class="showme">Mechanics</div>
+                </div>
+    
+                <div id="menuFeed" class= "menu-item" data-href="feedback">
+                    <img src="./src/assets/img/feedback.jpg"  class="imgClass" />
+                    <div class="showme">Feedback</div>
+                </div>
+    
+                <div id="menuAbout" class ="menu-item" data-href="about">
+                    <img src="./src/assets/img/about.jpg" class="imgClass"  />
+                    <div class="showme">About</div>
+                </div>
+      
+        </div>
+        <div id="calendar" class="hideable"></div>
+        
+        <div id="clients" class="hideable"> 
+            <h1>Clients</h1>
+        </div>
+        <div id="mechanics" class="hideable">
+                <h1>mechs</h1>
+        </div>
+        <div id="feedback" class="hideable">
+              
+                <h1>feeds</h1>
+        </div>
+        <div id="about" class="hideable">
+              
+                <h1>abouts</h1>
+        </div>
     </div>
 
-    <script src="./src/scripts/calendar.js" defer></script>
-    <!-- <script src="./src/scripts/fc-events-array.js"></script> -->
-
-    
+    <script src="./src/scripts/calendar.js">
+    </script>
+     <script src="./src/scripts/clickableMenu.js">
+     </script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 // Create the calendar when the document is ready
 $(document).ready(function() {
 
-    var events_array = [{
+    var events_array = [ {
             title: 'Event 1',
             // Set to 1st of the month at 12:00 am
             start: moment().startOf('month'),
@@ -31,18 +31,21 @@ $(document).ready(function() {
 
     ];
 
-
     var calendar = $('#calendar').fullCalendar({
             // Start of calendar options
 
             weekends: false,
 
             header: {
-
-                left: 'title',
-                right: 'today,month,agendaDay,agendaWeek prev,next'
-
+                left: 'today,month,agendaDay,agendaWeek',
+                center: 'title',
+                right: 'prev,next'
             },
+
+            // Sets first day of week to Monday
+            firstDay: 1,
+
+            aspectRatio: 2.2,
 
             // Make possible to respond to clicks and selections
             selectable: true,
@@ -50,7 +53,7 @@ $(document).ready(function() {
             events: events_array,
 
             select: function(start, end, jsEvent, view) {
-                alert(start.format("MM/DD/YYYY hh:mm a") + " to " + end.format("MM/DD/YYYY h\h:mm a") + " in view " + view.name);
+                alert(start.format('MM/DD/YYYY hh:mm a') + ' to ' + end.format('MM/DD/YYYY h\h:mm a') + ' in view ' + view.name);
             },
 
             // This is the callback that will be triggered when a selection is made.
@@ -86,7 +89,6 @@ $(document).ready(function() {
             // Make events editable, globally
             editable: true,
 
-
             // Callback triggered when we click on an event
             eventClick: function(event, jsEvent, view) {
                 // Ask for a title. If empty it will default to 'New event'
@@ -107,7 +109,6 @@ $(document).ready(function() {
             // select: function(start, end, jsEvent, view) {
             //     alert(start.format('MM/DD/YYYY hh:mm a') + ' to ' + end.format('MM/DD/YYYY h\h:mm a') + ' in view ' + view.name);
             // }
-
 
         } // End of calendar options
     );
