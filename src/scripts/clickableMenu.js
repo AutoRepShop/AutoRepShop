@@ -20,6 +20,7 @@ $('document').ready(function() {
         $('.hideable').not($div).hide();
         $div.slideToggle();
         $('.menu-item').removeClass('clicked');
+        $(this).removeClass('menu-item:hover');
         $(this).addClass('clicked');
     });
 });
