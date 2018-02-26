@@ -1,35 +1,35 @@
 // Create the calendar when the document is ready
 $(document).ready(function() {
 
-    var events_array = [ {
-            title: 'Event 1',
-            // Set to 1st of the month at 12:00 am
-            start: moment().startOf('month'),
-            // Set to en the 1st of the month at 1:30 am
-            end: moment().startOf('month').add(90, 'minutes'),
-            color: 'red'
-        }, {
-            title: 'Event 2',
-            // Set to 1st of the month at 12:00 am
-            start: moment().startOf('month').add(1, 'days'),
-            // Set to end the 1st of the month at 3:00 am
-            end: moment().startOf('month').add({
-                'days': 1,
-                'hours': 3
-            }),
-            color: 'green'
-        }, {
-            title: 'Multi-day event',
-            // Set to start the 1st of the month
-            start: moment().startOf('month'),
-            // Set to end one week after the start of the month
-            end: moment().startOf('month').add(1, 'weeks'),
-            color: 'blue',
-            // This is an all-day event
-            allDay: true
-        }
+    // var events_array = [{
+    //         title: 'Event 1',
+    //         // Set to 1st of the month at 12:00 am
+    //         start: moment().startOf('month'),
+    //         // Set to en the 1st of the month at 1:30 am
+    //         end: moment().startOf('month').add(90, 'minutes'),
+    //         color: 'red'
+    //     }, {
+    //         title: 'Event 2',
+    //         // Set to 1st of the month at 12:00 am
+    //         start: moment().startOf('month').add(1, 'days'),
+    //         // Set to end the 1st of the month at 3:00 am
+    //         end: moment().startOf('month').add({
+    //             'days': 1,
+    //             'hours': 3
+    //         }),
+    //         color: 'green'
+    //     }, {
+    //         title: 'Multi-day event',
+    //         // Set to start the 1st of the month
+    //         start: moment().startOf('month'),
+    //         // Set to end one week after the start of the month
+    //         end: moment().startOf('month').add(1, 'weeks'),
+    //         color: 'blue',
+    //         // This is an all-day event
+    //         allDay: true
+    //     }
 
-    ];
+    // ];
 
     var calendar = $('#calendar').fullCalendar({
             // Start of calendar options
@@ -45,12 +45,14 @@ $(document).ready(function() {
             // Sets first day of week to Monday
             firstDay: 1,
 
-            aspectRatio: 2.2,
+            aspectRatio: onResize(),
+
+            height: window.screen.availHeight * 0.75,
 
             // Make possible to respond to clicks and selections
             selectable: true,
 
-            events: events_array,
+            //events: events_array,
 
             select: function(start, end, jsEvent, view) {
                 alert(start.format('MM/DD/YYYY hh:mm a') + ' to ' + end.format('MM/DD/YYYY h\h:mm a') + ' in view ' + view.name);
@@ -91,19 +93,19 @@ $(document).ready(function() {
 
             // Callback triggered when we click on an event
             eventClick: function(event, jsEvent, view) {
-                // Ask for a title. If empty it will default to 'New event'
-                var newTitle = prompt('Enter a new title for this event', event.title);
+                    // Ask for a title. If empty it will default to 'New event'
+                    var newTitle = prompt('Enter a new title for this event', event.title);
 
-                // If did not pressed Cancel button
-                if (newTitle != null) {
-                    // Update event
-                    event.title = newTitle.trim() !== '' ? newTitle : event.title;
+                    // If did not pressed Cancel button
+                    if (newTitle != null) {
+                        // Update event
+                        event.title = newTitle.trim() !== '' ? newTitle : event.title;
 
-                    // Call the 'updateEvent' method
-                    $calendar.fullCalendar('updateEvent', event);
+                        // Call the 'updateEvent' method
+                        $calendar.fullCalendar('updateEvent', event);
 
-                }
-            } // End callback eventClick
+                    }
+                } // End callback eventClick
 
             // // This is the callback that will be triggered when a selection is made
             // select: function(start, end, jsEvent, view) {
