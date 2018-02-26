@@ -11,7 +11,6 @@ $('#about').hide();
 // });
 
 $('document').ready(function() {
-
     $('#menuCal, #menuCli, #menuMech, #menuFeed, #menuAbout').click(function() {
         $('#hiddenBox').css('visibility', 'unset');
         var $div = $('#' + $(this).data('href'));
