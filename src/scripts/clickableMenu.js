@@ -8,7 +8,6 @@ $('#about').hide();
 //         $('#mechanics').hide();
 //         $('#feedback').hide();
 //         $('#about').hide();
-       
 // });
 
 $('document').ready(function() {
