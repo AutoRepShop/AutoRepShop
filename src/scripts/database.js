@@ -1,5 +1,4 @@
 const databaseFunction = function() {
-
     return {
         eventsArray: [{
                 title: 'Event 1',
@@ -33,4 +32,3 @@ const databaseFunction = function() {
     };
 
 };
-

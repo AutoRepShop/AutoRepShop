@@ -7,6 +7,7 @@ $(document).ready(function() {
             // height: 'auto',
 
             weekends: false,
+
             height: window.screen.availHeight * 0.8,
 
             header: {
@@ -17,8 +18,6 @@ $(document).ready(function() {
 
             // Sets first day of week to Monday
             firstDay: 1,
-
-            height: window.screen.availHeight * 0.75,
 
             // Make possible to respond to clicks and selections
             selectable: true,
@@ -59,6 +58,7 @@ $(document).ready(function() {
                     addEvent(getAllEvents(), event);
 
                 };
+
                 // Whatever happens, unselect selection
                 calendar.fullCalendar('unselect');
 
@@ -69,7 +69,8 @@ $(document).ready(function() {
 
             eventDrop: function(event, delta, revertFunc) {
 
-                alert(event.title + " was dropped on " + event.start.format());
+                alert(event.title + ' was dropped on ' + event.start.format());
+
                 const currentEvent = {
                     id: event.id,
                     title: event.title,
@@ -78,7 +79,7 @@ $(document).ready(function() {
 
                 };
 
-                if (!confirm("Are you sure about this change?")) {
+                if (!confirm('Are you sure about this change?')) {
                     revertFunc();
                 } else {
                     updateEvent(currentEvent, event);
@@ -86,22 +87,21 @@ $(document).ready(function() {
 
             },
 
-
             // Callback triggered when we click on an event
             eventClick: function(event, jsEvent, view) {
                     // Ask for a title. If empty it will default to 'New event'
                     var newTitle = prompt('Enter a new title for this event', event.title);
 
-                // If did not pressed Cancel button
-                if (newTitle != null) {
-                    let currentEvent = event;
-                    // Update event
-                    event.title = newTitle.trim() !== '' ? newTitle : event.title;
+                    // If did not pressed Cancel button
+                    if (newTitle != null) {
+                        let currentEvent = event;
+                        // Update event
+                        event.title = newTitle.trim() !== '' ? newTitle : event.title;
 
-                    //update localStorage
-                    updateEvent(currentEvent, event);
-                    // Call the 'updateEvent' method
-                    calendar.fullCalendar('updateEvent', event);
+                        //update localStorage
+                        updateEvent(currentEvent, event);
+                        // Call the 'updateEvent' method
+                        calendar.fullCalendar('updateEvent', event);
 
                     }
                 } // End callback eventClick

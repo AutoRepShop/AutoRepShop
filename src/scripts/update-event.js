@@ -19,7 +19,7 @@ const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
             element.start = updatedEvent.start;
             element.end = updatedEvent.end;
 
-            localStorage.setItem("localStorageEvents", JSON.stringify(allEvents));
+            localStorage.setItem('localStorageEvents', JSON.stringify(allEvents));
 
             return;
         }

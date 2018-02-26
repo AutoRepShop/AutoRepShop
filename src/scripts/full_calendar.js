@@ -1,4 +1,4 @@
-var initialize_calendar = function() {
+var initializeCalendar = function() {
     $('.calendar').each(function() {
         var calendar = $(this);
         calendar.fullCalendar({
@@ -20,7 +20,7 @@ var initialize_calendar = function() {
             },
 
             eventDrop: function(event, delta, revertFunc) {
-                event_data = {
+                eventData = {
                     event: {
                         id: event.id,
                         start: event.start.format(),
@@ -29,7 +29,7 @@ var initialize_calendar = function() {
                 };
                 $.ajax({
                     url: event.update_url,
-                    data: event_data,
+                    data: eventData,
                     type: 'PATCH'
                 });
             },
@@ -40,4 +40,4 @@ var initialize_calendar = function() {
         });
     });
 };
-$(document).on('turbolinks:load', initialize_calendar);
+$(document).on('turbolinks:load', initializeCalendar);

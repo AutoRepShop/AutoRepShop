@@ -44,7 +44,7 @@ body {
 
 #sidebar {
     grid-column: 1/2;
-    grid-row: 1/11;
+    grid-row: 1/7;
     background: #ffffff8a;
 }
 
