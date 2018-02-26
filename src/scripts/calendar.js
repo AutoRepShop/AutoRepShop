@@ -45,8 +45,6 @@ $(document).ready(function() {
             // Sets first day of week to Monday
             firstDay: 1,
 
-            aspectRatio: onResize(),
-
             height: window.screen.availHeight * 0.75,
 
             // Make possible to respond to clicks and selections
