@@ -18,7 +18,7 @@ $(document).ready(function() {
             // Sets first day of week to Monday
             firstDay: 1,
 
-            aspectRatio: 2.2,
+            height: window.screen.availHeight * 0.75,
 
             // Make possible to respond to clicks and selections
             selectable: true,
@@ -89,8 +89,8 @@ $(document).ready(function() {
 
             // Callback triggered when we click on an event
             eventClick: function(event, jsEvent, view) {
-                // Ask for a title. If empty it will default to 'New event'
-                var newTitle = prompt('Enter a new title for this event', event.title);
+                    // Ask for a title. If empty it will default to 'New event'
+                    var newTitle = prompt('Enter a new title for this event', event.title);
 
                 // If did not pressed Cancel button
                 if (newTitle != null) {
@@ -103,8 +103,8 @@ $(document).ready(function() {
                     // Call the 'updateEvent' method
                     calendar.fullCalendar('updateEvent', event);
 
-                }
-            } // End callback eventClick
+                    }
+                } // End callback eventClick
 
             // // This is the callback that will be triggered when a selection is made
             // select: function(start, end, jsEvent, view) {
