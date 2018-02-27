@@ -10,7 +10,7 @@ $(document).ready(function() {
             height: window.innerHeight * .9,
 
             header: {
-                left: 'today,month,agendaDay,agendaWeek',
+                left: 'month,agendaDay,agendaWeek',
                 center: 'title',
                 right: 'prev,next'
             },
