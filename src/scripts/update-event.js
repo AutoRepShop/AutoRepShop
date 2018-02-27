@@ -1,5 +1,4 @@
 const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
-
     const currentEventId = {
         id: currentEvent.id
     };

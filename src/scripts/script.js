@@ -1,7 +1,9 @@
+//an IIFE to initialize empty 'database'
+//in localStorage if nothing is found
 (function() {
     var eventsArr = localStorage.getItem('localStorageEvents');
 
-    if (eventsArr === null) {
+    if (eventsArr == null) {
         localStorage.setItem('localStorageEvents', JSON.stringify([]));
     }
 

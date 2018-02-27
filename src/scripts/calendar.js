@@ -113,4 +113,3 @@ $(document).ready(function() {
         } // End of calendar options
     );
 });
-(function() {
