@@ -30,6 +30,7 @@ $(document).ready(function() {
             //     alert(start.format('MM/DD/YYYY hh:mm a') + ' to ' + end.format('MM/DD/YYYY h\h:mm a') + ' in view ' + view.name);
             // },
 
+
             // This is the callback that will be triggered when a selection is made.
             // It gets start and end date/time as part of its arguments
             select: function(start, end, jsEvent, view) {
@@ -45,7 +46,8 @@ $(document).ready(function() {
                         id: getEventId(),
                         title: title.trim() !== '' ? title : 'New event',
                         start: start,
-                        end: end
+                        end: end,
+                        color: 'red'
                     };
 
                     // Push event into fullCalendar's array of events
@@ -86,25 +88,52 @@ $(document).ready(function() {
 
             },
 
+            // select: function(start, end) {
+            //     // Display the modal.
+            //     // You could fill in the start and end fields based on the parameters
+            //     $('.modal').modal('show');
 
-            // Callback triggered when we click on an event
-            eventClick: function(event, jsEvent, view) {
-                    // Ask for a title. If empty it will default to 'New event'
-                    var newTitle = prompt('Enter a new title for this event', event.title);
+            // },
 
-                // If did not pressed Cancel button
-                if (newTitle != null) {
-                    let currentEvent = event;
-                    // Update event
-                    event.title = newTitle.trim() !== '' ? newTitle : event.title;
+            eventClick: function(event, element) {
+                // Display the modal and set the values to the event values.
+                $('#myModal').load('eventForm.html', function() {
+                    $('.modal').show();
+                });
 
-                    //update localStorage
-                    updateEvent(currentEvent, event);
-                    // Call the 'updateEvent' method
-                    calendar.fullCalendar('updateEvent', event);
+                // saveButton().on('click', function() {
+                //     $('#myModal').find('#title').val(event.title);
 
-                    }
-                } // End callback eventClick
+
+                //     modal.style.display = "none";
+                // });
+
+
+
+                // $('#myModal').modal('show');
+                // $('#myModal').find('#starts-at').val(event.start);
+                // $('#myModal').find('#ends-at').val(event.end);
+
+            }
+
+            // // Callback triggered when we click on an event
+            // eventClick: function(event, jsEvent, view) {
+            //         // Ask for a title. If empty it will default to 'New event'
+            //         var newTitle = prompt('Enter a new title for this event', event.title);
+
+            //     // If did not pressed Cancel button
+            //     if (newTitle != null) {
+            //         let currentEvent = event;
+            //         // Update event
+            //         event.title = newTitle.trim() !== '' ? newTitle : event.title;
+
+            //         //update localStorage
+            //         updateEvent(currentEvent, event);
+            //         // Call the 'updateEvent' method
+            //         calendar.fullCalendar('updateEvent', event);
+
+            //         }
+            //     } // End callback eventClick
 
             // // This is the callback that will be triggered when a selection is made
             // select: function(start, end, jsEvent, view) {
