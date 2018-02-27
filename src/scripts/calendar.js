@@ -1,6 +1,5 @@
 // Create the calendar when the document is ready
 $(document).ready(function() {
-
     var calendar = $('#calendar').fullCalendar({
             // Start of calendar options
 
