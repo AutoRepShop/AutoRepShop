@@ -57,6 +57,7 @@ $(document).ready(function() {
                 calendar.fullCalendar('renderEvent', event, true);
                 addEvent(getAllEvents(), event);
 
+                alert(`Your event PIN is ${getEventPin(event.id)}`);
             };
 
             // Whatever happens, unselect selection
@@ -75,7 +76,7 @@ $(document).ready(function() {
         eventClick: function(event, element) {
             // Display the modal and set the values to the event values.
             var pin = prompt('Please enter PIN in order to change or view this event');
-            if (pin === event.id) {
+            if (validatePin(event.id, pin)) {
                 $('#myModal').load('eventForm.html', function() {
                     $('.modal').show();
                 });
