@@ -2,7 +2,6 @@ var database = (function() {
     var feedbacks = [];
 
     var add = function(feeds) {
-        
         var temp = localStorage.getItem('data').split(',');
         temp.push(feeds);
         localStorage.setItem('data', temp);
@@ -29,4 +28,3 @@ $('#feedback .submit').click(function() {
     database.add(writtenText);
     // localStorage.setItem('data', writtenText);
 });
-
