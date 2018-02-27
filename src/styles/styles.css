@@ -106,28 +106,36 @@ body {
 .menu-item:hover {
     background-color: rgb(33, 6, 36);
 }
-.personalInfo{
+
+.personalInfo {
     margin-top: 1em;
     font-size: 2em;
     width: 13em;
     display: inline-block;
 }
-.clicked{
+
+.clicked {
     background: rgba(199, 191, 191, 0.671);
 }
-#commentBox{
+
+#commentBox {
     margin-left: 10%;
     margin-right: 10%;
 }
-#comment{
-    
+
+#comment {
     width: 100%;
     height: 10em;
     font-size: 2em;
 }
-#submit{
+
+#submit {
     height: 3em;
 }
-#displayedComments{
+
+#displayedComments {
     font-size: 2em;
+    overflow: scroll;
+    max-height: 18em;
+    max-width: 25em;
 }
