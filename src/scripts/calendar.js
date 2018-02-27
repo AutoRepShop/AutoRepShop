@@ -74,9 +74,24 @@ $(document).ready(function() {
 
         eventClick: function(event, element) {
             // Display the modal and set the values to the event values.
-            $('#myModal').load('eventForm.html', function() {
-                $('.modal').show();
-            });
+            var pin = prompt('Please enter PIN in order to change or view this event');
+            if (pin === event.id) {
+                $('#myModal').load('eventForm.html', function() {
+                    $('.modal').show();
+                });
+
+                // const currentEvent = {
+                //     id: event.id,
+                //     title: event.title,
+                //     start: event.start - delta,
+                //     end: event.end - delta
+                // };
+
+                // updateEvent(currentEvent, event);
+            } else {
+                alert("PIN is not correct, please try again");
+            }
+
         },
         // saveButton().on('click', function() {
         //     $('#myModal').find('#title').val(event.title);
