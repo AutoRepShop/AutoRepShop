@@ -1,6 +1,6 @@
-const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
-    const currentEventId = {
-        id: currentEvent.id
+const updateEvent = function UpdateEventToDatabase(updatedEvent) {
+    const eventId = {
+        id: updatedEvent.id
     };
 
     const allEvents = getAllEvents();
@@ -12,7 +12,7 @@ const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
 
         // alert("elementId: " + elementId.id + "     " + "currentEventId: " + currentEventId.id);
 
-        if (elementId.id === currentEventId.id) {
+        if (elementId.id === eventId.id) {
 
             element.title = updatedEvent.title;
             element.start = updatedEvent.start;
