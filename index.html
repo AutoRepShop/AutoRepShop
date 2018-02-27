@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="icon" href="./src/assets/img/html_icon.ico">
+
     <link rel='stylesheet' href='./node_modules/fullcalendar/dist/fullcalendar.min.css' />
     <link rel="stylesheet" href="./src/styles/styles.css">
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 
@@ -17,6 +22,7 @@
     <script src="./src/scripts/update-event.js"></script>
     <script src="./src/scripts/get-event-id.js"></script>
 
+
     <script src="./node_modules/moment/min/moment.min.js"></script>
     <script src="./node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
 
@@ -24,6 +30,10 @@
 </head>
 
 <body>
+
+    <div class="modal fade" id="myModal">
+        <!-- load the modal popup here -->
+    </div>
 
     <div class="wrapper">
         <div id="sidebar">
@@ -72,7 +82,8 @@
                 <form></form>
                 <label for="userName">What is your name?</label>
                 <br>
-                <textarea name="userName" id="userName" required="required"></textarea>
+
+                <input type='text' name="userName" id="userName" required="required"></input>
                 <br>
                 <label for="comment">Write your comment here:</label>
                 <br>
@@ -80,7 +91,6 @@
                 <br>
                 <button class="submit" type="submit" value="Submit">Submit</button>
             </div>
-
 
             <div id="displayedComments"></div>
         </div>
@@ -113,7 +123,6 @@
             </div>
 
         </div>
-
 
     </div>
 

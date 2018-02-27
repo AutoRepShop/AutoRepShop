@@ -1,6 +1,6 @@
 const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
     const currentEventId = {
-        id: currentEvent.id
+        id: updatedEvent.id
     };
 
     const allEvents = getAllEvents();
