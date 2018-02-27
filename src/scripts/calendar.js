@@ -8,7 +8,7 @@ $(document).ready(function() {
 
             weekends: false,
 
-            height: window.screen.availHeight * 0.8,
+            height: window.innerHeight * .9,
 
             header: {
                 left: 'today,month,agendaDay,agendaWeek',
