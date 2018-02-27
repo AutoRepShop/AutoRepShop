@@ -91,7 +91,6 @@ body {
     color: #fff;
     visibility: hidden;
     opacity: 0;
-    
 }
 
 .menu-item:hover .showme {
@@ -141,6 +140,11 @@ body {
     max-height: 18em;
     max-width: 99%;
     word-wrap: break-word;
+}
+
+#userName {
+    font-size: 2em;
+    width: 20em;
 }
 
 textarea {
