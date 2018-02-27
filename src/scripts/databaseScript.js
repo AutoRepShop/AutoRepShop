@@ -36,7 +36,11 @@ $('#feedback .submit').click(function() {
     $('#userName').val('');
     $('#commentBox #comment').val('');
 
+<<<<<<< HEAD
     authorName = authorName.concat(`<br>` + `<p class="add">${writtenText}</p>`);
+=======
+    authorName = authorName.concat('<br>' + `<p class="add">${writtenText}</p>`);
+>>>>>>> b1c01abe5bec0c7af9860dd399e5a601b3e10962
     database.addFeedback(authorName);
     database.printFeedbacks();
 });
