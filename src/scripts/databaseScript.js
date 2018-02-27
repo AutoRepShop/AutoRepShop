@@ -1,30 +1,42 @@
 var database = (function() {
-    var feedbacks = [];
+    var add = function(feedback) {
+        var feedbacks = getFeedbacks();
 
-    var add = function(feeds) {
-        var temp = localStorage.getItem('data').split(',');
-        temp.push(feeds);
-        localStorage.setItem('data', temp);
+        feedbacks.push(feedback);
+        localStorage.setItem('feedbackData', JSON.stringify(feedbacks));
+    };
+
+    var print = function() {
+        var feedbacks = getFeedbacks().reverse();
+        var result = feedbacks.join('<br><br>');
+        $('#displayedComments').html(`${result}`);
     };
 
     var getFeedbacks = function() {
-        var result = '';
-        var local = localStorage.getItem('data').split(',');
-        local.array.forEach(x => x => result += x + '\r\n');
-        $('#feedback p').text(result);
-        // .forEach(x => result += x + '\r\n');
-
-        // return result;
+        return JSON.parse(localStorage.getItem('feedbackData'));
     };
 
     return {
-        add: add,
-        getFeedbacks: getFeedbacks
+        addFeedback: add,
+        printFeedbacks: print
     };
 })();
 
 $('#feedback .submit').click(function() {
-    var writtenText = $('#commentBox #comment').val();
-    database.add(writtenText);
-    // localStorage.setItem('data', writtenText);
+    var authorName = $('#userName').val();
+    if (authorName === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
+    var writtenText = $('#commentBox #comment').val().replace(/\n/g, '<br/>');
+    if (writtenText === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
+    $('#userName').val('');
+    $('#commentBox #comment').val('');
+
+    authorName = authorName.concat('<br>' + writtenText);
+    database.addFeedback(authorName);
+    database.printFeedbacks();
 });

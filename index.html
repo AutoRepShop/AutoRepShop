@@ -20,7 +20,6 @@
     <script src="./node_modules/moment/min/moment.min.js"></script>
     <script src="./node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
 
-
     <title>AutoRepShop</title>
 </head>
 
@@ -45,7 +44,7 @@
                 <div class="showme">Mechanics</div>
             </div>
 
-            <div id="menuFeed" class="menu-item" data-href="feedback" onclick="getFeedbacks()">
+            <div id="menuFeed" class="menu-item" data-href="feedback" onclick="database.printFeedbacks()">
 
                 <img src="./src/assets/img/feedback.jpg" class="imgClass" />
                 <div class="showme">Feedback</div>
@@ -59,7 +58,7 @@
         </div>
 
         <div id="calendar" class="hideable"></div>
-        
+
         <div id="clients" class="hideable">
             <h1>Clients</h1>
         </div>
@@ -68,14 +67,22 @@
         </div>
 
         <div id="feedback" class="hideable">
-            
-                <div id="commentBox">
-                    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-                    <button class="submit" type="submit" value="Submit">Submit</button>
-                </div>
-                            
-            
-            <p id="displayedComments"></p>
+
+            <div id="commentBox">
+                <form ></form>
+                <label for="userName">What is your name?</label>
+                <br>
+                <textarea name="userName" id="userName" required="required"></textarea>
+                <br>
+                <label for="comment">Write your comment here:</label>
+                <br>
+                <textarea name="comment" id="comment" cols="30" rows="10" required="required"></textarea>
+                <br>
+                <button class="submit" type="submit" value="Submit">Submit</button>
+            </div>
+
+
+            <div id="displayedComments"></div>
         </div>
 
         <div id="about" class="hideable">
@@ -85,7 +92,7 @@
                     <li>Angel Hristov</li>
                     <li>Email: iovoslav.i@gmail.com</li>
                     <li>Github:</li>
-                   
+
                 </ul>
             </div>
             <div class="personalInfo">
@@ -93,7 +100,7 @@
                     <li>Iovo Iovchev</li>
                     <li>Email: iovoslav.i@gmail.com</li>
                     <li>Github:</li>
-                   
+
                 </ul>
             </div>
             <div class="personalInfo">
@@ -101,15 +108,15 @@
                     <li>Martin Stamatov</li>
                     <li>Email: marti_stamatov@abv.bg</li>
                     <li>Github github.com/Kassomats:</li>
-                   
+
                 </ul>
             </div>
 
         </div>
-        
+
 
     </div>
-    
+
     <script src="./src/scripts/databaseScript.js"></script>
     <script src="./src/scripts/calendar.js"></script>
     <script src="./src/scripts/clickableMenu.js"></script>

@@ -31,7 +31,6 @@ $(document).ready(function() {
             // This is the callback that will be triggered when a selection is made.
             // It gets start and end date/time as part of its arguments
             select: function(start, end, jsEvent, view) {
-
                 // Ask for a title. If empty it will default to 'New event'
 
                 var title = prompt('Enter a title for this event', 'New event');
@@ -66,44 +65,57 @@ $(document).ready(function() {
             // Make events editable, globally
             editable: true,
 
-            eventDrop: function(event, delta, revertFunc) {
+            // Callback triggered when we click on an event
+            eventClick: function(event, jsEvent, view) {
+                // Ask for a title. If empty it will default to 'New event'
+                var newTitle = prompt('Enter a new title for this event', event.title);
 
-                alert(event.title + ' was dropped on ' + event.start.format());
+                // If did not pressed Cancel button
+                if (newTitle != null) {
+                    let currentEvent = event;
+                    // Update event
+                    event.title = newTitle.trim() !== '' ? newTitle : event.title;
+
+                    //update localStorage
+                    updateEvent(currentEvent, event);
+                    // Call the 'updateEvent' method
+                    calendar.fullCalendar('updateEvent', event);
+                }
+            }, // End callback eventClick
+
+            eventDrop: function(event, delta, revertFunc) {
+                if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
+                            \nAre you sure about this change?`)) {
+                    revertFunc();
+                    return;
+                }
 
                 const currentEvent = {
                     id: event.id,
                     title: event.title,
                     start: event.start - delta,
                     end: event.end - delta
-
                 };
 
-                if (!confirm('Are you sure about this change?')) {
-                    revertFunc();
-                } else {
-                    updateEvent(currentEvent, event);
-                }
-
+                updateEvent(currentEvent, event);
             },
 
-            // Callback triggered when we click on an event
-            eventClick: function(event, jsEvent, view) {
-                    // Ask for a title. If empty it will default to 'New event'
-                    var newTitle = prompt('Enter a new title for this event', event.title);
+            eventResize: function(event, delta, revertFunc) {
+                if (!confirm(`${event.title + ' now ends on ' + event.end.format()}
+                            \nIs this okay?`)) {
+                    revertFunc();
+                    return;
+                }
 
-                    // If did not pressed Cancel button
-                    if (newTitle != null) {
-                        let currentEvent = event;
-                        // Update event
-                        event.title = newTitle.trim() !== '' ? newTitle : event.title;
+                const currentEvent = {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start - delta,
+                    end: event.end - delta
+                };
 
-                        //update localStorage
-                        updateEvent(currentEvent, event);
-                        // Call the 'updateEvent' method
-                        calendar.fullCalendar('updateEvent', event);
-
-                    }
-                } // End callback eventClick
+                updateEvent(currentEvent, event);
+            }
 
             // // This is the callback that will be triggered when a selection is made
             // select: function(start, end, jsEvent, view) {
