@@ -9,9 +9,6 @@ var database = (function() {
     var print = function() {
         var feedbacks = getFeedbacks().reverse();
         var result = feedbacks.join('<br><br>');
-
-        //$('#feedback p').text(result);
-
         $('#displayedComments').html(`${result}`);
     };
 
@@ -26,8 +23,20 @@ var database = (function() {
 })();
 
 $('#feedback .submit').click(function() {
-    var writtenText = $('#commentBox #comment').val();
-    database.addFeedback(writtenText);
+    var authorName = $('#userName').val();
+    if (authorName === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
+    var writtenText = $('#commentBox #comment').val().replace(/\n/g, '<br/>');
+    if (writtenText === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
+    $('#userName').val('');
+    $('#commentBox #comment').val('');
+
+    authorName = authorName.concat('<br>' + writtenText);
+    database.addFeedback(authorName);
     database.printFeedbacks();
-    // localStorage.setItem('data', writtenText);
 });
