@@ -9,9 +9,6 @@ var database = (function() {
     var print = function() {
         var feedbacks = getFeedbacks().reverse();
         var result = feedbacks.join('<br><br>');
-
-        //$('#feedback p').text(result);
-
         $('#displayedComments').html(`${result}`);
     };
 
@@ -26,7 +23,7 @@ var database = (function() {
 })();
 
 $('#feedback .submit').click(function() {
-    var writtenText = $('#commentBox #comment').val();
+    var writtenText = $('#commentBox #comment').val().replace(/\n/g, '<br/>');
     database.addFeedback(writtenText);
     database.printFeedbacks();
     // localStorage.setItem('data', writtenText);
