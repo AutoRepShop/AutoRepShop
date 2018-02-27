@@ -23,8 +23,20 @@ var database = (function() {
 })();
 
 $('#feedback .submit').click(function() {
+    var authorName = $('#userName').val();
+    if (authorName === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
     var writtenText = $('#commentBox #comment').val().replace(/\n/g, '<br/>');
-    database.addFeedback(writtenText);
+    if (writtenText === '') {
+        alert('Please fill out both areas!');
+        return;
+    }
+    $('#userName').val('');
+    $('#commentBox #comment').val('');
+
+    authorName = authorName.concat('<br>' + writtenText);
+    database.addFeedback(authorName);
     database.printFeedbacks();
-    // localStorage.setItem('data', writtenText);
 });
