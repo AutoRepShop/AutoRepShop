@@ -44,7 +44,7 @@ body {
 
 #sidebar {
     grid-column: 1/2;
-    grid-row: 1/11;
+    grid-row: 1/7;
     background: #ffffff8a;
 }
 
@@ -105,6 +105,59 @@ body {
 
 .menu-item:hover {
     background-color: rgb(33, 6, 36);
+}
+
+.personalInfo {
+    margin-top: 1em;
+    font-size: 2em;
+    width: 13em;
+    display: inline-block;
+}
+
+.clicked {
+    background: rgba(199, 191, 191, 0.671);
+}
+
+#commentBox {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#comment {
+    width: 100%;
+    height: 10em;
+    font-size: 2em;
+    background-color: green;
+}
+
+#submit {
+    height: 3em;
+}
+
+#displayedComments {
+    font-size: 2em;
+    overflow-x: hidden;
+    max-height: 18em;
+    max-width: 99%;
+    word-wrap: break-word;
+}
+
+#userName {
+    font-size: 2em;
+    width: 20em;
+}
+
+textarea {
+    display: inline-block;
+}
+
+label {
+    font-size: 2em;
+    display: inline-block;
+}
+
+.add {
+    font-size: .8em;
 }
 
 

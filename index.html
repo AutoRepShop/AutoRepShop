@@ -26,9 +26,6 @@
     <script src="./node_modules/moment/min/moment.min.js"></script>
     <script src="./node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
 
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
     <title>AutoRepShop</title>
 </head>
 
@@ -42,7 +39,7 @@
         <div id="sidebar">
 
             Sidebar
-            <div id="menuCal" class="menu-item" data-href="calendar">
+            <div id="menuCal" class="menu-item clicked" data-href="calendar">
                 <img src="./src/assets/img/calendar.jpg" class="imgClass" />
                 <div class="showme">Calendar</div>
             </div>
@@ -57,7 +54,8 @@
                 <div class="showme">Mechanics</div>
             </div>
 
-            <div id="menuFeed" class="menu-item" data-href="feedback">
+            <div id="menuFeed" class="menu-item" data-href="feedback" onclick="database.printFeedbacks()">
+
                 <img src="./src/assets/img/feedback.jpg" class="imgClass" />
                 <div class="showme">Feedback</div>
             </div>
@@ -68,32 +66,67 @@
             </div>
 
         </div>
+
         <div id="calendar" class="hideable"></div>
-        <!-- <div id="hiddenBox"> -->
+
         <div id="clients" class="hideable">
             <h1>Clients</h1>
         </div>
         <div id="mechanics" class="hideable">
             <h1>mechs</h1>
         </div>
+
         <div id="feedback" class="hideable">
 
-            <h1>feeds</h1>
+            <div id="commentBox">
+                <form></form>
+                <label for="userName">What is your name?</label>
+                <br>
+                
+                <input type='text' name="userName" id="userName" required="required"></input>
+                <br>
+                <label for="comment">Write your comment here:</label>
+                <br>
+                <textarea name="comment" id="comment" cols="30" rows="10" required="required"></textarea>
+                <br>
+                <button class="submit" type="submit" value="Submit">Submit</button>
+            </div>
+
+            <div id="displayedComments"></div>
         </div>
+
         <div id="about" class="hideable">
+            <div class="personalInfo">
+                <p>This is a simple AutoRepShop calendar.</p>
+                <ul>
+                    <li>Angel Hristov</li>
+                    <li>Email: iovoslav.i@gmail.com</li>
+                    <li>Github:</li>
 
-            <h1>abouts</h1>
+                </ul>
+            </div>
+            <div class="personalInfo">
+                <ul>
+                    <li>Iovo Iovchev</li>
+                    <li>Email: iovoslav.i@gmail.com</li>
+                    <li>Github:</li>
+
+                </ul>
+            </div>
+            <div class="personalInfo">
+                <ul>
+                    <li>Martin Stamatov</li>
+                    <li>Email: marti_stamatov@abv.bg</li>
+                    <li>Github github.com/Kassomats:</li>
+
+                </ul>
+            </div>
+
         </div>
-
-        <!-- </div> -->
 
     </div>
 
-
-
-
-
-
+    <script src="./src/scripts/databaseScript.js"></script>
     <script src="./src/scripts/calendar.js"></script>
     <script src="./src/scripts/clickableMenu.js"></script>
     <script src="./src/scripts/script.js"></script>

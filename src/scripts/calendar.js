@@ -1,13 +1,13 @@
 // Create the calendar when the document is ready
 $(document).ready(function() {
-
     var calendar = $('#calendar').fullCalendar({
             // Start of calendar options
 
             // height: 'auto',
 
             weekends: false,
-            height: window.screen.availHeight * 0.8,
+
+            height: window.innerHeight * .9,
 
             header: {
                 left: 'today,month,agendaDay,agendaWeek',
@@ -17,8 +17,6 @@ $(document).ready(function() {
 
             // Sets first day of week to Monday
             firstDay: 1,
-
-            height: window.screen.availHeight * 0.75,
 
             // Make possible to respond to clicks and selections
             selectable: true,
@@ -34,7 +32,6 @@ $(document).ready(function() {
             // This is the callback that will be triggered when a selection is made.
             // It gets start and end date/time as part of its arguments
             select: function(start, end, jsEvent, view) {
-
                 // Ask for a title. If empty it will default to 'New event'
 
                 var title = prompt('Enter a title for this event', 'New event');
@@ -61,6 +58,7 @@ $(document).ready(function() {
                     addEvent(getAllEvents(), event);
 
                 };
+
                 // Whatever happens, unselect selection
                 calendar.fullCalendar('unselect');
 
@@ -69,31 +67,10 @@ $(document).ready(function() {
             // Make events editable, globally
             editable: true,
 
-            eventDrop: function(event, delta, revertFunc) {
-
-                alert(event.title + " was dropped on " + event.start.format());
-                const currentEvent = {
-                    id: event.id,
-                    title: event.title,
-                    start: event.start - delta,
-                    end: event.end - delta
-
-                };
-
-                if (!confirm("Are you sure about this change?")) {
-                    revertFunc();
-                } else {
-                    updateEvent(currentEvent, event);
-                }
-
-            },
-
-            // select: function(start, end) {
-            //     // Display the modal.
-            //     // You could fill in the start and end fields based on the parameters
-            //     $('.modal').modal('show');
-
-            // },
+            // Callback triggered when we click on an event
+            eventClick: function(event, jsEvent, view) {
+                // Ask for a title. If empty it will default to 'New event'
+                var newTitle = prompt('Enter a new title for this event', event.title);
 
             eventClick: function(event, element) {
                 // Display the modal and set the values to the event values.
@@ -104,6 +81,39 @@ $(document).ready(function() {
                 // saveButton().on('click', function() {
                 //     $('#myModal').find('#title').val(event.title);
 
+            eventDrop: function(event, delta, revertFunc) {
+                if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
+                            \nAre you sure about this change?`)) {
+                    revertFunc();
+                    return;
+                }
+
+                const currentEvent = {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start - delta,
+                    end: event.end - delta
+                };
+
+                updateEvent(currentEvent, event);
+            },
+
+            eventResize: function(event, delta, revertFunc) {
+                if (!confirm(`${event.title + ' now ends on ' + event.end.format()}
+                            \nIs this okay?`)) {
+                    revertFunc();
+                    return;
+                }
+
+                const currentEvent = {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start - delta,
+                    end: event.end - delta
+                };
+
+                updateEvent(currentEvent, event);
+            }
 
                 //     modal.style.display = "none";
                 // });

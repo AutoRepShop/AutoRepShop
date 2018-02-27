@@ -11,6 +11,7 @@
         "no-undef": ["off"],
         "linebreak-style": ["off"],
         "space-in-parens": ["error", "never"],
+        "array-bracket-spacing": ["off"],
         "lines-around-comment": ["off"],
         "eol-last": ["off"],
         "quotes": ["error", "single"],

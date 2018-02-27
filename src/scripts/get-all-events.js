@@ -1,4 +1,3 @@
 const getAllEvents = function() {
-    return JSON.parse(localStorage.getItem("localStorageEvents"));
-
+    return JSON.parse(localStorage.getItem('localStorageEvents'));
 };
