@@ -106,3 +106,28 @@ body {
 .menu-item:hover {
     background-color: rgb(33, 6, 36);
 }
+.personalInfo{
+    margin-top: 1em;
+    font-size: 2em;
+    width: 13em;
+    display: inline-block;
+}
+.clicked{
+    background: rgba(199, 191, 191, 0.671);
+}
+#commentBox{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#comment{
+    
+    width: 100%;
+    height: 10em;
+    font-size: 2em;
+}
+#submit{
+    height: 3em;
+}
+#displayedComments{
+    font-size: 2em;
+}
