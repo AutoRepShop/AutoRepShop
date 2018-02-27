@@ -20,7 +20,7 @@ var database = (function() {
         addFeedback: add,
         printFeedbacks: print
     };
-});
+})();
 
 $('#feedback .submit').click(function() {
     var authorName = $('#userName').val();
