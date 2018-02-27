@@ -136,17 +136,21 @@ body {
 
 #displayedComments {
     font-size: 2em;
-    
     overflow-x: hidden;
     max-height: 18em;
     max-width: 99%;
     word-wrap: break-word;
 }
 
-textarea{
+textarea {
     display: inline-block;
 }
-label{
+
+label {
     font-size: 2em;
     display: inline-block;
+}
+
+.add {
+    font-size: .8em;
 }
