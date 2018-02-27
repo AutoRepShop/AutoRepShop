@@ -20,7 +20,7 @@ var database = (function() {
         addFeedback: add,
         printFeedbacks: print
     };
-})();
+});
 
 $('#feedback .submit').click(function() {
     var authorName = $('#userName').val();
@@ -36,7 +36,7 @@ $('#feedback .submit').click(function() {
     $('#userName').val('');
     $('#commentBox #comment').val('');
 
-    authorName = authorName.concat(`<br>` + `<p class="add">${writtenText}</p>`);
+    authorName = authorName.concat('<br>' + `<p class="add">${writtenText}</p>`);
     database.addFeedback(authorName);
     database.printFeedbacks();
 });
