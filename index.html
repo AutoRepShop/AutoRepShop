@@ -7,24 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="icon" href="./src/assets/img/html_icon.ico">
+
     <link rel='stylesheet' href='./node_modules/fullcalendar/dist/fullcalendar.min.css' />
     <link rel="stylesheet" href="./src/styles/styles.css">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    
+
     <script src="./src/scripts/add-event.js"></script>
     <script src="./src/scripts/get-all-events.js"></script>
     <script src="./src/scripts/update-event.js"></script>
     <script src="./src/scripts/get-event-id.js"></script>
+    
 
     <script src="./node_modules/moment/min/moment.min.js"></script>
     <script src="./node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
     <title>AutoRepShop</title>
 </head>
 
 <body>
+
+    <div class="modal fade" id="myModal">
+        <!-- load the modal popup here -->
+    </div>
 
     <div class="wrapper">
         <div id="sidebar">
@@ -72,9 +84,15 @@
 
             <h1>abouts</h1>
         </div>
+
         <!-- </div> -->
 
     </div>
+
+
+
+
+
 
     <script src="./src/scripts/calendar.js"></script>
     <script src="./src/scripts/clickableMenu.js"></script>
@@ -82,3 +100,12 @@
 </body>
 
 </html>
+
+<script>
+    $(function() {
+        $("#datepicker").datepicker({
+            showButtonPanel: true
+        });
+    });
+
+</script>
