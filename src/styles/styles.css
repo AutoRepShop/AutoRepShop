@@ -91,6 +91,7 @@ body {
     color: #fff;
     visibility: hidden;
     opacity: 0;
+    
 }
 
 .menu-item:hover .showme {
