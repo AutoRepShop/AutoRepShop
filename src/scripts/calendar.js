@@ -78,16 +78,11 @@ $(document).ready(function() {
             if (pin === event.id) {
                 $('#myModal').load('eventForm.html', function() {
                     $('.modal').show();
+                    saveEventModalInfo();
                 });
 
-                // const currentEvent = {
-                //     id: event.id,
-                //     title: event.title,
-                //     start: event.start - delta,
-                //     end: event.end - delta
-                // };
+                updateEvent(currentEvent, event);
 
-                // updateEvent(currentEvent, event);
             } else {
                 alert("PIN is not correct, please try again");
             }
@@ -103,14 +98,7 @@ $(document).ready(function() {
                 return;
             }
 
-            const currentEvent = {
-                id: event.id,
-                title: event.title,
-                start: event.start - delta,
-                end: event.end - delta
-            };
-
-            updateEvent(currentEvent, event);
+            updateEvent(event);
         },
 
         eventResize: function(event, delta, revertFunc) {
@@ -120,14 +108,7 @@ $(document).ready(function() {
                 return;
             }
 
-            const currentEvent = {
-                id: event.id,
-                title: event.title,
-                start: event.start - delta,
-                end: event.end - delta
-            };
-
-            updateEvent(currentEvent, event);
+            updateEvent(event);
         }
 
         //     modal.style.display = "none";
