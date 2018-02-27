@@ -143,7 +143,10 @@ body {
     max-width: 99%;
     word-wrap: break-word;
 }
-
+#userName{
+    font-size: 2em;
+    width: 20em;
+}
 textarea{
     display: inline-block;
 }
