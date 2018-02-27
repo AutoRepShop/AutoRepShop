@@ -91,7 +91,6 @@ body {
     color: #fff;
     visibility: hidden;
     opacity: 0;
-    
 }
 
 .menu-item:hover .showme {
@@ -137,20 +136,27 @@ body {
 
 #displayedComments {
     font-size: 2em;
-    
     overflow-x: hidden;
     max-height: 18em;
     max-width: 99%;
     word-wrap: break-word;
+    word-break: break-all;
 }
-#userName{
+
+#userName {
     font-size: 2em;
     width: 20em;
 }
-textarea{
+
+textarea {
     display: inline-block;
 }
-label{
+
+label {
     font-size: 2em;
     display: inline-block;
+}
+
+.add {
+    font-size: .8em;
 }

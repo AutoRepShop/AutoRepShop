@@ -36,7 +36,7 @@ $('#feedback .submit').click(function() {
     $('#userName').val('');
     $('#commentBox #comment').val('');
 
-    authorName = authorName.concat('<br>' + writtenText);
+    authorName = authorName.concat(`<br>` + `<p class="add">${writtenText}</p>`);
     database.addFeedback(authorName);
     database.printFeedbacks();
 });
