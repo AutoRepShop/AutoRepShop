@@ -113,6 +113,7 @@ var calendar = $('#calendar').fullCalendar({
                 $('#description').val(event.description);
 
                 //add Click event listener
+                $('#eventModalId').text('Edit Appointment');
                 saveEventModalInfo(event, 'edit');
             });
 
