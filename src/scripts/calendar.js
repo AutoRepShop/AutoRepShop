@@ -3,7 +3,6 @@
 var calendar = $('#calendar').fullCalendar({
     // Start of calendar options
 
-
     // height: 'auto',
 
     weekends: false,

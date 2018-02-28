@@ -1,8 +1,19 @@
 function validate() {
+    const title = $('#title').val();
     const clientName = $('#clientName').val();
     const telephone = $('#telephone').val();
     const vehicle = $('#vehicle').val();
     var description = $('#description').val();
+
+    if (title === '') {
+        alert("Type of repair cannot be empty");
+        return 'problem';
+    }
+
+    if (title.length > 100) {
+        alert("Type of repair must be less than 100 symbols");
+        return 'problem';
+    }
 
     if (clientName === '') {
         alert("Client name cannot be empty");
@@ -28,12 +39,12 @@ function validate() {
         return 'problem';
     }
 
-    if (telephone.lenght <= 3) {
+    if (telephone.length <= 3) {
         alert("Telephone must be more than 3 digits");
         return 'problem';
     }
 
-    if (telephone.lenght > 20) {
+    if (telephone.length > 20) {
         alert("Telephone must be less than 20 digits");
         return 'problem';
     }
@@ -43,12 +54,12 @@ function validate() {
         return 'problem';
     }
 
-    if (vehicle.lenght < 150) {
+    if (vehicle.length > 150) {
         alert("Vehicle can be no more than 150 symbols");
         return 'problem';
     }
 
-    if (description.lenght < 300) {
+    if (description.length > 300) {
         alert("Description can be no more than 300 symbols");
         return 'problem';
     }

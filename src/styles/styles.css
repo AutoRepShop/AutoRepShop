@@ -222,7 +222,7 @@ label {
 
 .modal-footer {
     padding: 2px 16px;
-    margin-top: 40px; 
+    margin-top: 40px;
     background-color: #5cb85c;
     color: white;
 }
@@ -282,8 +282,8 @@ label {
     font-family: 'Times New Roman', Times, serif
 }
 
-#currentWeather{
+#currentWeather {
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
-    float :left;
+    float: left;
 }
