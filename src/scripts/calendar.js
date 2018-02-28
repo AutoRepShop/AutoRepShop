@@ -75,8 +75,7 @@ $(document).ready(function() {
 
         eventClick: function(event, element) {
             // Display the modal and set the values to the event values.
-            var pin = prompt('Please enter PIN in order to change or view this event');
-            if (validatePin(event.id, pin)) {
+            if (validatePin(event.id)) {
                 $('#myModal').load('eventForm.html', function() {
                     $('.modal').show();
                 });
@@ -89,8 +88,6 @@ $(document).ready(function() {
                 // };
 
                 // updateEvent(currentEvent, event);
-            } else {
-                alert('PIN is not correct, please try again');
             }
 
         },
@@ -98,37 +95,37 @@ $(document).ready(function() {
         //     $('#myModal').find('#title').val(event.title);
 
         eventDrop: function(event, delta, revertFunc) {
-            if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
+            if (validatePin(event.id) && confirm(`${event.title + ' was dropped on ' + event.start.format()}
                             \nAre you sure about this change?`)) {
-                revertFunc();
+                const currentEvent = {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start - delta,
+                    end: event.end - delta
+                };
+                updateEvent(currentEvent, event);
+
                 return;
             }
 
-            const currentEvent = {
-                id: event.id,
-                title: event.title,
-                start: event.start - delta,
-                end: event.end - delta
-            };
-
-            updateEvent(currentEvent, event);
+            revertFunc();
         },
 
         eventResize: function(event, delta, revertFunc) {
-            if (!confirm(`${event.title + ' now ends on ' + event.end.format()}
+            if (validatePin(event.id) && confirm(`${event.title + ' now ends on ' + event.end.format()}
                             \nIs this okay?`)) {
-                revertFunc();
+                const currentEvent = {
+                    id: event.id,
+                    title: event.title,
+                    start: event.start - delta,
+                    end: event.end - delta
+                };
+                updateEvent(currentEvent, event);
+
                 return;
             }
 
-            const currentEvent = {
-                id: event.id,
-                title: event.title,
-                start: event.start - delta,
-                end: event.end - delta
-            };
-
-            updateEvent(currentEvent, event);
+            revertFunc();
         }
 
         //     modal.style.display = "none";
