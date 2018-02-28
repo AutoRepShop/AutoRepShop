@@ -79,21 +79,23 @@ var calendar = $('#calendar').fullCalendar({
     // calendar.fullCalendar('renderEvent', event, true);
 
 
-    eventClick: function(event, element) {
-        // Display the modal and set the values to the event values.
-        if (validatePin(event.id)) {
-            $('#myModal').load('eventForm.html', function() {
-                $('.modal').show();
-            });
+    //LEAVE LIKE THAT FOR NOW
+    // eventClick: function(event, element) {
+    //     debugger;
+    //     // Display the modal and set the values to the event values.
+    //     if (validatePin(event.id)) {
+    //         $('#myModal').load('eventForm.html', function() {
+    //             $('.modal').show();
+    //         });
 
-            // };
+    //         // };
 
-            // Whatever happens, unselect selection
-            calendar.fullCalendar('unselect');
-            // updateEvent(currentEvent, event);
-        }
+    //         // Whatever happens, unselect selection
+    //         calendar.fullCalendar('unselect');
+    //         // updateEvent(currentEvent, event);
+    //     }
 
-    }, // End select callback
+    // }, // End select callback
 
     // Make events editable, globally
     editable: true,
@@ -125,32 +127,36 @@ var calendar = $('#calendar').fullCalendar({
 
             // updateEvent(event);
 
-        } else {
-            alert('PIN is not correct, please try again');
         }
     },
     // saveButton().on('click', function() {
     //     $('#myModal').find('#title').val(event.title);
 
     eventDrop: function(event, delta, revertFunc) {
-        if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
+        if (validatePin(event.id)) {
+            if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
                             \nAre you sure about this change?`)) {
-            revertFunc();
+                revertFunc();
+                return;
+            }
+
+            updateEvent(event);
             return;
         }
 
-        updateEvent(event);
-    },
-
-    eventResize: function(event, delta, revertFunc) {
-        if (!confirm(`${event.title + ' now ends on ' + event.end.format()}
-                            \nIs this okay?`)) {
-            revertFunc();
-            return;
-        }
-
-        updateEvent(event);
+        revertFunc();
     }
+
+    // OBSOLETE ?
+    // eventResize: function(event, delta, revertFunc) {
+    //     if (!confirm(`${event.title + ' now ends on ' + event.end.format()}
+    //                         \nIs this okay?`)) {
+    //         revertFunc();
+    //         return;
+    //     }
+
+    //     updateEvent(event);
+    // }
 
     //     modal.style.display = "none";
     // });
