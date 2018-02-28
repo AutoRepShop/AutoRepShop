@@ -47,5 +47,10 @@ function saveEventModalInfo(event, typeOfAction) {
         // }
 
 
+        if (validate() !== 'problem') {
+            modal.style.display = 'none';
+            location.reload();
+            alert(`Your event PIN is ${getEventPin(event.id)}  \n Please, remember it! \n It's required for any change of appointment \n and if you want to leave feedback `);
+        }
     });
 };

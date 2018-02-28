@@ -35,10 +35,10 @@ var calendar = $('#calendar').fullCalendar({
     //     alert(start.format('MM/DD/YYYY hh:mm a') + ' to ' + end.format('MM/DD/YYYY h\h:mm a') + ' in view ' + view.name);
     // },
 
-
     // This is the callback that will be triggered when a selection is made.
     // It gets start and end date/time as part of its arguments
     select: function(start, end, jsEvent, view) {
+        debugger;
 
         // Create event
         var event = {
@@ -50,12 +50,11 @@ var calendar = $('#calendar').fullCalendar({
             tel: 'Please enter telephone',
             vehicle: 'Please enter vehicle brand/ model/ year/ hp',
             description: 'Please describe your problem',
-            color: 'blue' //'#' + math.random() * 999999
+            color: getRandomColor()
         };
 
         $('#myModal').load('eventForm.html', function() {
             $('.modal').show();
-            //add Click event listener
             saveEventModalInfo(event, 'new');
         });
 
@@ -156,7 +155,7 @@ var calendar = $('#calendar').fullCalendar({
     //     updateEvent(event);
     // }
 
-    //     modal.style.display = "none";
+    //     modal.style.display = 'none';
     // });
 
 
