@@ -95,37 +95,17 @@ $(document).ready(function() {
         //     $('#myModal').find('#title').val(event.title);
 
         eventDrop: function(event, delta, revertFunc) {
-            if (validatePin(event.id) && confirm(`${event.title + ' was dropped on ' + event.start.format()}
-                            \nAre you sure about this change?`)) {
-                const currentEvent = {
-                    id: event.id,
-                    title: event.title,
-                    start: event.start - delta,
-                    end: event.end - delta
-                };
-                updateEvent(currentEvent, event);
+            var message = `${event.title + ' was dropped on ' + event.start.format()}
+            \nAre you sure about this change?`;
 
-                return;
-            }
-
-            revertFunc();
+            updateEvent(event, delta, revertFunc, message);
         },
 
         eventResize: function(event, delta, revertFunc) {
-            if (validatePin(event.id) && confirm(`${event.title + ' now ends on ' + event.end.format()}
-                            \nIs this okay?`)) {
-                const currentEvent = {
-                    id: event.id,
-                    title: event.title,
-                    start: event.start - delta,
-                    end: event.end - delta
-                };
-                updateEvent(currentEvent, event);
+            var message = `${event.title + ' now ends on ' + event.end.format()}
+            \nIs this okay?`;
 
-                return;
-            }
-
-            revertFunc();
+            updateEvent(event, delta, revertFunc, message);
         }
 
         //     modal.style.display = "none";

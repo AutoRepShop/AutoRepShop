@@ -1,26 +1,42 @@
-const updateEvent = function UpdateEventToDatabase(currentEvent, updatedEvent) {
-    const currentEventId = {
-        id: updatedEvent.id
-    };
-
-    const allEvents = getAllEvents();
-
-    allEvents.forEach(element => {
-        var elementId = {
-            id: element.id
+const updateEvent = function(event, delta, revertFunc, message) {
+    function UpdateEventToDatabase(currentEvent, updatedEvent) {
+        const currentEventId = {
+            id: updatedEvent.id
         };
 
-        // alert("elementId: " + elementId.id + "     " + "currentEventId: " + currentEventId.id);
+        const allEvents = getAllEvents();
 
-        if (elementId.id === currentEventId.id) {
+        allEvents.forEach(element => {
+            var elementId = {
+                id: element.id
+            };
 
-            element.title = updatedEvent.title;
-            element.start = updatedEvent.start;
-            element.end = updatedEvent.end;
+            // alert("elementId: " + elementId.id + "     " + "currentEventId: " + currentEventId.id);
 
-            localStorage.setItem('localStorageEvents', JSON.stringify(allEvents));
+            if (elementId.id === currentEventId.id) {
 
-            return;
-        }
-    });
+                element.title = updatedEvent.title;
+                element.start = updatedEvent.start;
+                element.end = updatedEvent.end;
+
+                localStorage.setItem('localStorageEvents', JSON.stringify(allEvents));
+
+                return;
+            }
+        });
+    }
+
+    if (validatePin(event.id) && confirm(message)) {
+        const currentEvent = {
+            id: event.id,
+            title: event.title,
+            start: event.start - delta,
+            end: event.end - delta
+        };
+        UpdateEventToDatabase(currentEvent, event);
+
+        return;
+    }
+
+    revertFunc();
 };
