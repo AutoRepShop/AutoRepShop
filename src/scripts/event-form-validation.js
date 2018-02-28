@@ -4,7 +4,12 @@ function validate() {
     const telephone = $('#telephone').val();
     const vehicle = $('#vehicle').val();
     var description = $('#description').val();
-
+    const startDate = $('#starts-at').val();
+    const endDate = $('#ends-at').val();
+    
+    const startDateInt = Date.parse(startDate);
+    const endDateInt = Date.parse(endDate);
+    
     if (title === '') {
         alert("Type of repair cannot be empty");
         return 'problem';
@@ -27,8 +32,8 @@ function validate() {
 
     function isNumeric(telephone) {
         return !isNaN(parseFloat(telephone)) && isFinite(telephone);
-      }
-    
+    }
+
     if (!isNumeric(telephone)) {
         alert('Telephone must contain only digits');
         return 'problem';
@@ -61,6 +66,11 @@ function validate() {
 
     if (description.length > 300) {
         alert("Description can be no more than 300 symbols");
+        return 'problem';
+    }
+
+    if (startDateInt > endDateInt) {
+        alert("Start date must be before end date");
         return 'problem';
     }
 
