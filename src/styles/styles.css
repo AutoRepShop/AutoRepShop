@@ -69,13 +69,14 @@ body {
 #feedback {
     grid-column: 2/9;
     grid-row: 1/20;
-    background: rgba(45, 87, 62, 0.596);
+    background: rgba(45, 87, 62, 0);
 }
 
 #about {
     grid-column: 2/9;
     grid-row: 1/20;
-    background: rgb(49, 85, 39);
+    background: rgba(76, 138, 59, 0.748);
+    padding: 3em;
 }
 
 #hiddenBox {
@@ -108,9 +109,9 @@ body {
 }
 
 .personalInfo {
-    margin-top: 1em;
-    font-size: 2em;
-    width: 13em;
+    margin: .5em;
+    font-size: 1.5em;
+    /* width: 13em; */
     display: inline-block;
 }
 
@@ -165,6 +166,7 @@ label {
     font-size: .8em;
 }
 
+
 /* The Modal (background) */
 
 .modal {
@@ -188,6 +190,7 @@ label {
     /* Black w/ opacity */
 }
 
+
 /* The Close Button */
 
 .close {
@@ -204,6 +207,7 @@ label {
     cursor: pointer;
 }
 
+
 /* Modal Header */
 
 .modal-header {
@@ -212,11 +216,13 @@ label {
     color: white;
 }
 
+
 /* Modal Body */
 
 .modal-body {
     padding: 2px 16px;
 }
+
 
 /* Modal Footer */
 
@@ -226,6 +232,7 @@ label {
     background-color: #5cb85c;
     color: white;
 }
+
 
 /* Modal Content */
 
@@ -242,6 +249,7 @@ label {
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+
 
 /* Add Animation */
 
@@ -286,4 +294,8 @@ label {
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     float: left;
+}
+
+#desc {
+    font-size: 2em;
 }
