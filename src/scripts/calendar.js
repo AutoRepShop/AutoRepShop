@@ -107,8 +107,7 @@ var calendar = $('#calendar').fullCalendar({
 
     eventClick: function(event, element) {
         // Display the modal and set the values to the event values.
-        var pin = prompt('Please enter PIN in order to change or view this event');
-        if (pin === event.id) {
+        if (validatePin(event.id)) {
             $('#myModal').load('eventForm.html', function() {
                 $('.modal').show();
                 //Fill with existing data in case of edit

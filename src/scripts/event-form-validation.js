@@ -3,7 +3,9 @@ function validate() {
     const clientName = $('#clientName').val();
     const telephone = $('#telephone').val();
     const vehicle = $('#vehicle').val();
-    var description = $('#description').val();
+    const description = $('#description').val();
+    const startDate = $('#starts-at').val();
+    const endDate = $('#ends-at').val();
 
     if (title === '') {
         alert('Type of repair cannot be empty');
@@ -64,5 +66,13 @@ function validate() {
         return 'problem';
     }
 
+    if (startDate === '') {
+        alert('Please enter a Start Date');
+        return 'problem';
+    }
 
+    if (endDate === '') {
+        alert('Please enter an End Date');
+        return 'problem';
+    }
 };
