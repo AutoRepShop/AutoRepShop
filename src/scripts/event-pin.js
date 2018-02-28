@@ -8,15 +8,17 @@ const getEventPin = function(id) {
 };
 
 const validatePin = function(eventID) {
-    var PIN = prompt('Please enter PIN in order to change or view this event');
-    var actualPIN = getEventPin(eventID);
+    while (true) {
+        var PIN = prompt('Please enter PIN in order to change or view this event');
+        var actualPIN = getEventPin(eventID);
 
-    if (PIN === null) {
-        return false;
+        if (PIN === null) {
+            return false;
+        }
+        if (PIN !== actualPIN) {
+            alert('PIN is not correct, please try again');
+            continue;
+        }
+        return true;
     }
-    if (PIN !== actualPIN) {
-        alert('PIN is not correct, please try again');
-        return false;
-    }
-    return true;
 };

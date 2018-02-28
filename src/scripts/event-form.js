@@ -2,8 +2,7 @@ function saveEventModalInfo(event, typeOfAction) {
     // Get the modal
     var modal = document.getElementById('myModal');
 
-    document.getElementById("save-event").addEventListener("click", function() {
-
+    document.getElementById('save-event').addEventListener('click', function() {
         //save info in localStorage
         event.title = $('#title').val();
         event.start = $('#starts-at').val();
@@ -12,6 +11,16 @@ function saveEventModalInfo(event, typeOfAction) {
         event.tel = $('#telephone').val();
         event.vehicle = $('#vehicle').val();
         event.description = $('#description').val();
+
+        if (validate() === 'problem') {
+            return;
+        }
+
+        if (validate() !== 'problem') {
+            debugger;
+            modal.style.display = 'none';
+            location.reload();
+        }
 
         if (typeOfAction === 'new') {
             addEvent(getAllEvents(), event);
@@ -33,11 +42,6 @@ function saveEventModalInfo(event, typeOfAction) {
 
 
         // }
-        if (validate() !== 'problem') {
-            modal.style.display = "none";
-            location.reload();
-
-        }
         //  else {
         //     validate()
         // }
