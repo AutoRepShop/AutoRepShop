@@ -2,7 +2,7 @@ function saveEventModalInfo(event, typeOfAction) {
     // Get the modal
     var modal = document.getElementById('myModal');
 
-    document.getElementById("save-event").addEventListener("click", function() {
+    document.getElementById('save-event').addEventListener('click', function() {
 
         //save info in localStorage
         event.title = $('#title').val();
@@ -27,9 +27,9 @@ function saveEventModalInfo(event, typeOfAction) {
 
         // calendar.eventC= getAllEvents();
         // //close the modal
-        modal.style.display = "none";
+        modal.style.display = 'none';
 
-       location.reload();
+        location.reload();
 
 
     });
