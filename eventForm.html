@@ -1,7 +1,7 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./node_modules/Cross-browser-Date-Time-Selector-For-jQuery-dateTimePicker/dist/date-time-picker.min.js"></script>
 
-
+<link rel="stylesheet" type="text/css" href="./other_modules/datetimepicker-master/jquery.datetimepicker.css" />
+<script src="./other_modules/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
 
 <div id='calendar'></div>
 <div id='datepicker'></div>
@@ -23,13 +23,13 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <label class="col-xs-6" for="clientName">Client Name</label>
+                        <label class="col-xs-6" for="clientName" required>Client Name</label>
                         <input type="text" name="clientName" id="clientName" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <label class="col-xs-6" for="tel" aria-required="">Telephone</label>
+                        <label class="col-xs-6" for="tel" required>Telephone</label>
                         <input type="text" name="tel" id="telephone" />
                     </div>
                 </div>
@@ -39,7 +39,6 @@
                         <input type="text" name="vehicle" id="vehicle" />
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-">
                         <label class="form-group" for="description">Description</label>
@@ -48,14 +47,14 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <label class="datetimepicker col-xs-6" for="starts-at">Starts at</label>
-                        <input type="text" name="starts_at" id="starts-at" />
+                        <label class="col-xs-6" for="starts-at">Starts at</label>
+                        <input class="dtpicker" type="text" name="starts_at" id="starts-at" />
                     </div>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <label class="col-xs-6" for="ends-at">Ends at</label>
-                            <input class="datetimepicker" type="text" name="ends_at" id="ends-at" />
-                        </div>
+                </div>
+                <div class="row ">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="ends-at">Ends at</label>
+                        <input class="dtpicker" type="text" name="ends_at" id="ends-at" />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -64,44 +63,23 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById('myModal');
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close ")[0];
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none ";
+    }
 
-    </script>
+</script>
 
 
-    <script>
-        $('#starts-at').dateTimePicker({
-
-            // used to limit the date range
-            limitMax: null,
-            limitMin: null,
-
-            // year name
-            yearName: '',
-
-            // month names
-            // monthName: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-
-            // day names
-            // dayName: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-
-            // "date" or "dateTime"
-            mode: 'dateTime',
-
-            // custom date format
-            format: 'yyyy-MM-ddThh:mm:ss'
-
-        });
-
-    </script>
+<script>
+    $('.dtpicker').datetimepicker();
+</script>

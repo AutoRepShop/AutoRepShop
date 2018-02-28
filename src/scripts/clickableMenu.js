@@ -16,9 +16,9 @@ $('document').ready(function() {
             return;
         }
         $('#hiddenBox').css('visibility', 'unset');
-        var $div = $('#' + $(this).data('href'));
-        $('.hideable').not($div).hide();
-        $div.slideToggle();
+        var divi = $('#' + $(this).data('href'));
+        $('.hideable').not(divi).hide();
+        divi.slideToggle();
         $('.menu-item').removeClass('clicked');
         $(this).removeClass('menu-item:hover');
         $(this).addClass('clicked');

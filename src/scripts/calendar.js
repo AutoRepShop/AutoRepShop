@@ -16,6 +16,7 @@ var calendar = $('#calendar').fullCalendar({
     },
 
     height: window.innerHeight * .9,
+
     header: {
         left: 'month,agendaDay,agendaWeek',
         center: 'title',
@@ -121,6 +122,7 @@ var calendar = $('#calendar').fullCalendar({
                 $('#description').val(event.description);
 
                 //add Click event listener
+                $('#eventModalId').text('Edit Appointment');
                 saveEventModalInfo(event, 'edit');
             });
 
