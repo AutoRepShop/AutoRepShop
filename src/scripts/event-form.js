@@ -2,6 +2,7 @@ function saveEventModalInfo(event, typeOfAction) {
     // Get the modal
     var modal = document.getElementById('myModal');
 
+    //add listener for click event
     document.getElementById("save-event").addEventListener("click", function() {
 
         //save info in localStorage
@@ -20,28 +21,10 @@ function saveEventModalInfo(event, typeOfAction) {
             updateEvent(event);
         }
 
-        // $.get('/src/scripts/calendar.js');
-        // $('#calendar').fullCalendar({
-        // events: getAllEvents()
-        // });
-
-        // calendar.eventC= getAllEvents();
-        // //close the modal
-
-        // while ((validate() === 'problem')
-        // {
-
-
-        // }
         if (validate() !== 'problem') {
             modal.style.display = "none";
             location.reload();
-
+            alert(`Your event PIN is ${getEventPin(event.id)}  \n Please, remember it! \n It's required for any change of appointment \n and if you want to leave feedback `);
         }
-        //  else {
-        //     validate()
-        // }
-
-
     });
 };
