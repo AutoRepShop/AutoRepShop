@@ -27,9 +27,20 @@ function saveEventModalInfo(event, typeOfAction) {
 
         // calendar.eventC= getAllEvents();
         // //close the modal
-        modal.style.display = "none";
 
-       location.reload();
+        // while ((validate() === 'problem')
+        // {
+
+
+        // }
+        if (validate() !== 'problem') {
+            modal.style.display = "none";
+            location.reload();
+
+        }
+        //  else {
+        //     validate()
+        // }
 
 
     });
