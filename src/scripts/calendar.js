@@ -52,9 +52,7 @@ var calendar = $('#calendar').fullCalendar({
             vehicle: 'Please enter vehicle brand/ model/ year/ hp',
             description: 'Please describe your problem',
             color: 'blue' //'#' + math.random() * 999999
-
         };
-
 
         $('#myModal').load('eventForm.html', function() {
             $('.modal').show();
@@ -69,7 +67,6 @@ var calendar = $('#calendar').fullCalendar({
         // If did not pressed Cancel button
         // if (title != null) {
 
-        alert(`Your event PIN is ${getEventPin(event.id)}`);
     },
 
 
