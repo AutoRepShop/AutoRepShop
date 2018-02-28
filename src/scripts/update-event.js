@@ -21,7 +21,7 @@ const updateEvent = function UpdateEventToDatabase(updatedEvent) {
             element.tel = updatedEvent.tel;
             element.vehicle = updatedEvent.vehicle;
             element.description = updatedEvent.description;
-            
+
             localStorage.setItem('localStorageEvents', JSON.stringify(allEvents));
 
             return;

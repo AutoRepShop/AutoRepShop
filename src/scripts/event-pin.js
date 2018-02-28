@@ -7,8 +7,16 @@ const getEventPin = function(id) {
     return pin;
 };
 
-const validatePin = function(eventID, PIN) {
+const validatePin = function(eventID) {
+    var PIN = prompt('Please enter PIN in order to change or view this event');
     var actualPIN = getEventPin(eventID);
 
-    return actualPIN === PIN;
+    if (PIN === null) {
+        return false;
+    }
+    if (PIN !== actualPIN) {
+        alert('PIN is not correct, please try again');
+        return false;
+    }
+    return true;
 };

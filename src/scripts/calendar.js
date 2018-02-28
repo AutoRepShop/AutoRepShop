@@ -3,7 +3,7 @@
 var calendar = $('#calendar').fullCalendar({
     // Start of calendar options
 
-    
+
     // height: 'auto',
 
     weekends: false,
@@ -18,7 +18,7 @@ var calendar = $('#calendar').fullCalendar({
     height: window.innerHeight * .9,
 
     header: {
-        left: 'today,month,agendaDay,agendaWeek',
+        left: 'month,agendaDay,agendaWeek',
         center: 'title',
         right: 'prev,next'
     },
@@ -69,23 +69,32 @@ var calendar = $('#calendar').fullCalendar({
         // If did not pressed Cancel button
         // if (title != null) {
 
+        alert(`Your event PIN is ${getEventPin(event.id)}`);
+    },
 
 
-        // Push event into fullCalendar's array of events
-        // and displays it. The last argument is the
-        // 'stick' value. If set to true the event
-        // will 'stick' even after you move to other
-        // year, month, day or week.
+    // Push event into fullCalendar's array of events
+    // and displays it. The last argument is the
+    // 'stick' value. If set to true the event
+    // will 'stick' even after you move to other
+    // year, month, day or week.
 
-        // calendar.fullCalendar('renderEvent', event, true);
+    // calendar.fullCalendar('renderEvent', event, true);
 
 
-        // addEvent(getAllEvents(), event);
+    eventClick: function(event, element) {
+        // Display the modal and set the values to the event values.
+        if (validatePin(event.id)) {
+            $('#myModal').load('eventForm.html', function() {
+                $('.modal').show();
+            });
 
-        // };
+            // };
 
-        // Whatever happens, unselect selection
-        calendar.fullCalendar('unselect');
+            // Whatever happens, unselect selection
+            calendar.fullCalendar('unselect');
+            // updateEvent(currentEvent, event);
+        }
 
     }, // End select callback
 
@@ -120,7 +129,7 @@ var calendar = $('#calendar').fullCalendar({
             // updateEvent(event);
 
         } else {
-            alert("PIN is not correct, please try again");
+            alert('PIN is not correct, please try again');
         }
     },
     // saveButton().on('click', function() {
