@@ -148,7 +148,8 @@ body {
 
 #userName {
     font-size: 2em;
-    width: 20em;
+    width: 80%;
+    float: none;
 }
 
 textarea {
@@ -279,4 +280,10 @@ input {
 
 label {
     font-family: 'Times New Roman', Times, serif
+}
+
+#currentWeather{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    float :left;
 }
