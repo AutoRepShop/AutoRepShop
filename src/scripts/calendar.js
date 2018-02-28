@@ -38,8 +38,6 @@ var calendar = $('#calendar').fullCalendar({
     // This is the callback that will be triggered when a selection is made.
     // It gets start and end date/time as part of its arguments
     select: function(start, end, jsEvent, view) {
-        debugger;
-
         // Create event
         var event = {
             id: getEventId(),

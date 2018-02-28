@@ -17,12 +17,12 @@ function saveEventModalInfo(event, typeOfAction) {
         }
 
         if (validate() !== 'problem') {
-            debugger;
             modal.style.display = 'none';
             location.reload();
         }
 
         if (typeOfAction === 'new') {
+            localStorage.setItem('nextEventId', JSON.stringify(parseInt(event.id) + 1));
             addEvent(getAllEvents(), event);
         } else if (typeOfAction === 'edit') {
             // update events in localStorage
