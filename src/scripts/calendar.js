@@ -24,14 +24,14 @@ var calendar = $('#calendar').fullCalendar({
     // Make possible to respond to clicks and selections
     selectable: true,
 
-    events: getAllEvents(),
+    events: eventHandler.getAllEvents(),
 
     // This is the callback that will be triggered when a selection is made.
     // It gets start and end date/time as part of its arguments
     select: function(start, end) {
         // Create event
         var event = {
-            id: getEventId(),
+            id: eventHandler.getEventId(),
             title: 'New event',
             start: start,
             end: end,
@@ -54,7 +54,7 @@ var calendar = $('#calendar').fullCalendar({
     // Defines what happens when you click on an existing event
     eventClick: function(event, element) {
         // Display the modal and set the values to the event values.
-        if (validatePin(event.id)) {
+        if (validationsHandler.validatePin(event.id)) {
             $('#myModal').load('eventForm.html', function() {
                 $('.modal').show();
                 //Fill with existing data in case of edit
@@ -75,7 +75,7 @@ var calendar = $('#calendar').fullCalendar({
 
     // Defines what happens when you drag and drop an existing event
     eventDrop: function(event, delta, revertFunc) {
-        if (validatePin(event.id)) {
+        if (validationsHandler.validatePin(event.id)) {
             if (!confirm(`${event.title + ' was dropped on ' + event.start.format()}
                             \nAre you sure about this change?`)) {
                 revertFunc();

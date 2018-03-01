@@ -18,39 +18,22 @@ function saveEventModalInfo(event, typeOfAction) {
 
         if (validate() !== 'problem') {
             modal.style.display = 'none';
-            location.reload();
+            //location.reload();
         }
 
         if (typeOfAction === 'new') {
             localStorage.setItem('nextEventId', JSON.stringify(parseInt(event.id) + 1));
-            addEvent(getAllEvents(), event);
+            eventHandler.addEvent(eventHandler.getAllEvents(), event);
         } else if (typeOfAction === 'edit') {
             // update events in localStorage
             updateEvent(event);
         }
 
-        // $.get('/src/scripts/calendar.js');
-        // $('#calendar').fullCalendar({
-        // events: getAllEvents()
-        // });
-
-        // calendar.eventC= getAllEvents();
-        // //close the modal
-
-        // while ((validate() === 'problem')
-        // {
-
-
-        // }
-        //  else {
-        //     validate()
-        // }
-
-
         if (validate() !== 'problem') {
+            // debugger;
             modal.style.display = 'none';
+            alert(`Your event PIN is ${validationsHandler.getEventPin(event.id)}  \n Please, remember it! \n It's required for any change of appointment \n and if you want to leave feedback `);
             location.reload();
-            alert(`Your event PIN is ${getEventPin(event.id)}  \n Please, remember it! \n It's required for any change of appointment \n and if you want to leave feedback `);
         }
     });
 };
