@@ -16,7 +16,7 @@ const validationsHandler = {
             if (PIN === null) {
                 return false;
             }
-            if (PIN !== actualPIN || PIN !== 'admin') {
+            if (PIN !== actualPIN && PIN !== 'admin') {
                 alert('PIN is not correct, please try again');
                 continue;
             }
