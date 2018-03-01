@@ -64,6 +64,7 @@ body {
     grid-column: 2/9;
     grid-row: 1/20;
     background: rgba(44, 96, 144, 0.589);
+    padding: 1em;
 }
 
 #feedback {
@@ -108,7 +109,7 @@ body {
     background-color: rgb(33, 6, 36);
 }
 
-.personalMech{
+.personalMech {
     margin-top: 1em;
     font-size: 2em;
     width: 8em;
@@ -116,6 +117,7 @@ body {
     /* width: auto; */
     display: inline-block;
 }
+
 .personalInfo {
     margin: .5em;
     font-size: 1.5em;
@@ -128,7 +130,6 @@ body {
 }
 
 #commentBox {
-    
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -306,34 +307,36 @@ label {
     font-size: large;
     float: left;
 }
-#mechanics>p{
+
+#mechanics>p {
     font-size: 3em;
     text-align: center;
 }
-#navBar{
-    height:6em;
+
+#navBar {
+    height: 6em;
     width: 100%;
     margin-bottom: 0.5em;
     background-size: 100% 8em;
-    
     background-image: url('../assets/img/top.png')
-    
 }
-#clients{
+
+#clients {
     /* height:6em;
     width: 100%;
     margin-bottom: 0.5em; */
     background-size: 100% 100%;
     background-image: url('../assets/img/inprogress.jpg')
-    
 }
-#logo{
+
+#logo {
     height: 100%;
     width: 10em;
     background-size: 100% 110%;
     /* border: solid black 1px; */
     background-image: url('../assets/img/car-icon.png')
 }
-#desc{
+
+#desc {
     font-size: 2em;
 }
