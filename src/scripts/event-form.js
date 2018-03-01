@@ -13,7 +13,6 @@ function saveEventModalInfo(event, typeOfAction) {
         event.vehicle = $('#vehicle').val();
         event.description = $('#description').val();
 
-        debugger;
         if (validate() === 'problem') {
             return;
         }

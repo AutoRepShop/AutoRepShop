@@ -8,7 +8,6 @@ const validationsHandler = {
     },
 
     validatePin: function(eventID) {
-        debugger;
         while (true) {
             var PIN = prompt('Please enter PIN in order to change or view this event');
             var actualPIN = this.getEventPin(eventID);

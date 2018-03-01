@@ -17,7 +17,6 @@ const eventHandler = {
         const eventId = {
             id: updatedEvent.id
         };
-        debugger;
 
         const allEvents = this.getAllEvents();
 
