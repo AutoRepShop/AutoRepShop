@@ -8,5 +8,5 @@ function getRandomColor() {
 }
 
 function setRandomColor() {
-    $("#colorpad").css("background-color", getRandomColor());
+    $('#colorpad').css('background-color', getRandomColor());
 }

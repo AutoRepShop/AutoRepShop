@@ -10,8 +10,6 @@ const updateEvent = function UpdateEventToDatabase(updatedEvent) {
             id: element.id
         };
 
-        // alert("elementId: " + elementId.id + "     " + "currentEventId: " + currentEventId.id);
-
         if (elementId.id === eventId.id) {
 
             element.title = updatedEvent.title;
