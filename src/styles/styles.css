@@ -107,6 +107,14 @@ body {
     background-color: rgb(33, 6, 36);
 }
 
+.personalMech{
+    margin-top: 1em;
+    font-size: 2em;
+    width: 8em;
+    height: auto;
+    /* width: auto; */
+    display: inline-block;
+}
 .personalInfo {
     margin-top: 1em;
     font-size: 2em;
@@ -119,11 +127,14 @@ body {
 }
 
 #commentBox {
+    
     margin-left: 10%;
     margin-right: 10%;
 }
 
 #comment {
+    margin-top: 0%;
+    margin-bottom: 0%;
     width: 100%;
     height: 10em;
     font-size: 2em;
@@ -286,4 +297,32 @@ label {
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     float: left;
+}
+#mechanics>p{
+    font-size: 3em;
+    text-align: center;
+}
+#navBar{
+    height:6em;
+    width: 100%;
+    margin-bottom: 0.5em;
+    background-size: 100% 8em;
+    
+    background-image: url('../assets/img/top.png')
+    
+}
+#clients{
+    /* height:6em;
+    width: 100%;
+    margin-bottom: 0.5em; */
+    background-size: 100% 100%;
+    background-image: url('../assets/img/inprogress.jpg')
+    
+}
+#logo{
+    height: 100%;
+    width: 10em;
+    background-size: 100% 110%;
+    /* border: solid black 1px; */
+    background-image: url('../assets/img/car-icon.png')
 }
