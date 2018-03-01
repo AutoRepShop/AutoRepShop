@@ -6,12 +6,15 @@
         {
             "type": "npm",
             "script": "test",
-            "problemMatcher": ["$eslint-stylish"]
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
         },
         {
             "label": "eslint",
             "type": "shell",
-            "command": "./../node_modules/eslint/bin/eslint.js --fix ."
+            "command": "./../node_modules/eslint/bin/eslint.js --fix .",
+            "problemMatcher": []
         }
     ]
 }  

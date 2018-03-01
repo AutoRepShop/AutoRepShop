@@ -1,0 +1,85 @@
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./other_modules/datetimepicker-master/jquery.datetimepicker.css" />
+<script src="./other_modules/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+
+<div id='calendar'></div>
+<div id='datepicker'></div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="eventModalId">New Appointment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="col-md-6" for="title">Repair type</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="clientName" >Client name</label>
+                        <input type="text" name="clientName" id="clientName" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="tel" >Telephone</label>
+                        <input type="text" name="tel" id="telephone" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="vehicle">Vehicle info</label>
+                        <input type="text" name="vehicle" id="vehicle" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-">
+                        <label class="form-group" for="description">Description</label>
+                        <textarea type="text" name="description" id="description" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="starts-at">Starts at</label>
+                        <input class="dtpicker" type="text" name="starts_at" id="starts-at" />
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-xs-8">
+                        <label class="col-xs-6" for="ends-at">Ends at</label>
+                        <input class="dtpicker" type="text" name="ends_at" id="ends-at" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save-event">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close ")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none ";
+    }
+
+</script>
+
+
+<script>
+    $('.dtpicker').datetimepicker();
+</script>

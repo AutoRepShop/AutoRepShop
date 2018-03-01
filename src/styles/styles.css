@@ -12,70 +12,81 @@ body {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 15px;
-    margin-top: 150px;
+    /* margin-top: 150px; */
     margin-bottom: -1em;
+    /* height: 15em ; */
 }
-.hideable{
-    border:2px solid black;
+
+.hideable {
+    border: 2px solid black;
     background-color: violet;
 }
-.imgClass{
-    
+
+.imgClass {
     margin-top: 15%;
     /* margin-bottom: 15%; */
-    
     max-width: 100%;
     height: auto;
 }
-.menu-item{
+
+.menu-item {
     height: 8em;
     width: auto;
     background-color: lightslategray;
-    border:2px solid black;
+    border: 2px solid black;
     margin: 0em;
     margin-bottom: 0em;
     margin-top: 0em;
     /* padding: 3em; */
     /* vertical-align:middle;  */
-    text-align:center;
+    text-align: center;
 }
-
 
 #sidebar {
     grid-column: 1/2;
-    grid-row: 1/20;
+    /* grid-row: 1/7; */
     background: #ffffff8a;
 }
-
 
 #calendar {
     grid-column: 2/9;
-    grid-row: 1/20;
+    grid-row: 1/15;
     background: #ffffff8a;
 }
 
-#clients{
+#clients {
     grid-column: 2/9;
     grid-row: 1/20;
     background: rgb(167, 119, 167);
 }
-#mechanics{
+
+#mechanics {
     grid-column: 2/9;
     grid-row: 1/20;
     background: rgba(44, 96, 144, 0.589);
-}
-#feedback{
-    grid-column: 2/9;
-    grid-row: 1/20;
-    background: rgba(45, 87, 62, 0.596);
-}
-#about{
-    grid-column: 2/9;
-    grid-row: 1/20;
-    background: rgb(49, 85, 39);
+    padding: 1em;
 }
 
-.showme{ 
+#feedback {
+    grid-column: 2/9;
+    grid-row: 1/20;
+    background: rgba(45, 87, 62, 0);
+}
+
+#about {
+    grid-column: 2/9;
+    grid-row: 1/20;
+    background: rgba(76, 138, 59, 0.748);
+    padding: 3em;
+}
+
+#hiddenBox {
+    grid-column: 2/9;
+    grid-row: 1/20;
+    visibility: hidden;
+}
+
+.showme {
     font-size: 1.5em;
     position: relative;
     background: rgba(29, 106, 154, 0.72);
@@ -83,14 +94,249 @@ body {
     visibility: hidden;
     opacity: 0;
 }
-.menu-item:hover  .showme{
+
+.menu-item:hover .showme {
     visibility: visible;
     opacity: 1;
 }
-.menu-item:hover  .imgClass{
+
+.menu-item:hover .imgClass {
     opacity: 0.5;
     margin-top: 5%;
 }
-.menu-item:hover{
+
+.menu-item:hover {
     background-color: rgb(33, 6, 36);
+}
+
+.personalMech {
+    margin-top: 1em;
+    font-size: 2em;
+    width: 8em;
+    height: auto;
+    /* width: auto; */
+    display: inline-block;
+}
+
+.personalInfo {
+    margin: .5em;
+    font-size: 1.5em;
+    /* width: 13em; */
+    display: inline-block;
+}
+
+.clicked {
+    background: rgba(199, 191, 191, 0.671);
+}
+
+#commentBox {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#comment {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100%;
+    height: 10em;
+    font-size: 2em;
+    background-color: green;
+}
+
+#submit {
+    height: 3em;
+}
+
+#displayedComments {
+    font-size: 2em;
+    overflow-x: hidden;
+    max-height: 18em;
+    max-width: 99%;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: .5em .5em -2em .5em;
+    padding: 1em;
+    height: 13em;
+}
+
+#userName {
+    font-size: 2em;
+    width: 80%;
+    float: none;
+}
+
+textarea {
+    display: inline-block;
+}
+
+label {
+    font-size: 2em;
+    display: inline-block;
+}
+
+.add {
+    font-size: .8em;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /*  Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 100;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Modal Header */
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
+/* Modal Body */
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+
+/* Modal Footer */
+
+.modal-footer {
+    padding: 2px 16px;
+    margin-top: 40px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    /* 15% from the top and centered */
+    padding: 0;
+    border: 1px solid #888;
+    max-width: 205px;
+    max-height: 660px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.add {
+    font-size: .8em;
+}
+
+textarea {
+    position: relative;
+    display: block;
+    /* padding: 20%; */
+    margin: 5% -2% 5%;
+    /* margin: 5px 5px 5px 5px; */
+    width: 100%;
+    height: 50px;
+    resize: none;
+    overflow: auto;
+    /* border: 1px solid black; */
+}
+
+input {
+    float: right;
+    width: relative;
+}
+
+label {
+    font-family: 'Times New Roman', Times, serif
+}
+
+#currentWeather {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    float: left;
+}
+
+#mechanics>p {
+    font-size: 3em;
+    text-align: center;
+}
+
+#navBar {
+    height: 6em;
+    width: 100%;
+    margin-bottom: 0.5em;
+    background-size: 100% 8em;
+    background-image: url('../assets/img/top.png')
+}
+
+#clients {
+    /* height:6em;
+    width: 100%;
+    margin-bottom: 0.5em; */
+    background-size: 100% 100%;
+    background-image: url('../assets/img/inprogress.jpg')
+}
+
+#logo {
+    height: 100%;
+    width: 10em;
+    background-size: 100% 110%;
+    /* border: solid black 1px; */
+    background-image: url('../assets/img/car-icon.png')
+}
+
+#desc {
+    font-size: 2em;
 }
